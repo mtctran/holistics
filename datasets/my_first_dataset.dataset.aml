@@ -4,6 +4,14 @@ Dataset my_first_dataset {
   data_source_name: 'demo_db'
   models: [
     cities
+    ,
+    categories,
+    countries,
+    merchants,
+    order_items,
+    orders,
+    products,
+    users
   ]
   relationships: [
   ]
