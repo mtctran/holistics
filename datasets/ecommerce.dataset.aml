@@ -1,5 +1,5 @@
-Dataset my_first_dataset {
-  label: 'My First Dataset'
+Dataset ecommerce {
+  label: 'Ecommerce Dataset'
   description: ''
   data_source_name: 'demo_db'
   models: [
