@@ -55,6 +55,14 @@ Dashboard test {
         mode: 'auto'
       }
     }
+    tab tab2: CanvasLayout {
+      label: 'Untitled'
+      height: 800
+      grid_size: 20
+      mobile {
+        mode: 'auto'
+      }
+    }
   }
 
   theme: H.themes.vanilla
