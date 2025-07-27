@@ -1,22 +1,69 @@
 Dashboard untitled {
-  title: 'Untitled'
-  description: ''
+  title: 'untitled.page'
+  description: 'Testing dashboard'
   block title: TextBlock {
-    content: @md # Your title goes here ;;
+    content: @md # My Dashboard;;
+  }
+  block v1: VizBlock {
+    label: 'Revenue'
+    viz: MetricKpi {
+      dataset: ecommerce
+      calculation revenue {
+        label: 'Revenue'
+        formula: @aql sum(order_items, products.price * order_items.quantity);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      value: VizFieldFull {
+        ref: 'revenue'
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        display_mode: 'compare_by_number'
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+        label {
+          font_size: 25
+        }
+        alignment: 'center'
+      }
+    }
+    settings {
+      hide_label: true
+    }
   }
 
-  view: CanvasLayout {
+  view: TabLayout {
     label: 'View 1'
-    height: 840
-    grid_size: 20
-    block title {
-      position: pos(20, 20, 1160, 60)
+    tab tab1: CanvasLayout {
+      label: 'Tab 1'
+      height: 840
+      grid_size: 20
+      block title {
+        position: pos(460, 20, 240, 60)
+      }
+      block v1 {
+        position: pos(20, 80, 200, 120)
+        layer: 1
+      }
+      mobile {
+        mode: 'auto'
+      }
     }
-    mobile {
-      mode: 'auto'
+    tab tab2: CanvasLayout {
+      label: 'Untitled'
+      height: 800
+      grid_size: 20
+      mobile {
+        mode: 'auto'
+      }
     }
   }
 
   theme: H.themes.vanilla
-
 }
