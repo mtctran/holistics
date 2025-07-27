@@ -2,7 +2,7 @@ Dashboard test {
   title: 'Test'
   description: 'Testing dashboard'
   block title: TextBlock {
-    content: @md # Your title goes here ;;
+    content: @md # My Dashboard;;
   }
 
   view: CanvasLayout {
@@ -18,5 +18,4 @@ Dashboard test {
   }
 
   theme: H.themes.vanilla
-
 }
