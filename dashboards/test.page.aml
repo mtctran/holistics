@@ -22,11 +22,15 @@ Dashboard test {
         }
       }
       settings {
+        display_mode: 'compare_by_number'
         aggregate_awareness {
           enabled: true
           debug_comments: true
         }
-        alignment: 'left'
+        label {
+          font_size: 25
+        }
+        alignment: 'center'
       }
     }
     settings {
