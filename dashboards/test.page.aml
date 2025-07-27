@@ -4,6 +4,35 @@ Dashboard test {
   block title: TextBlock {
     content: @md # My Dashboard;;
   }
+  block v1: VizBlock {
+    label: 'Revenue'
+    viz: MetricKpi {
+      dataset: ecommerce
+      calculation revenue {
+        label: 'Revenue'
+        formula: @aql sum(order_items, products.price * order_items.quantity);;
+        calc_type: 'measure'
+        data_type: 'number'
+      }
+      value: VizFieldFull {
+        ref: 'revenue'
+        format {
+          type: 'number'
+          pattern: 'inherited'
+        }
+      }
+      settings {
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+        alignment: 'left'
+      }
+    }
+    settings {
+      hide_label: true
+    }
+  }
 
   view: TabLayout {
     label: 'View 1'
@@ -13,6 +42,10 @@ Dashboard test {
       grid_size: 20
       block title {
         position: pos(20, 20, 1160, 60)
+      }
+      block v1 {
+        position: pos(20, 100, 260, 180)
+        layer: 1
       }
       mobile {
         mode: 'auto'
