@@ -44,7 +44,7 @@ Dashboard test {
         position: pos(20, 20, 1160, 60)
       }
       block v1 {
-        position: pos(20, 80, 260, 180)
+        position: pos(20, 80, 200, 120)
         layer: 1
       }
       mobile {
