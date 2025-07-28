@@ -5,13 +5,13 @@ Model customer_transactions {
   data_source_name: 'main_bigquery'
   
   query: @sql
-    SELECT 1 as test_number
+    SELECT Customer_ID FROM `plenary-osprey-465723-c7.client_1.client_1_data` LIMIT 1
   ;;
   
-  dimension test_number {
-    label: 'Test Number'
+  dimension customer_id {
+    label: 'Customer ID'
     type: 'number'
-    definition: @sql {{ #SOURCE.test_number }};;
+    definition: @sql {{ #SOURCE.Customer_ID }};;
   }
 
   owner: 'minh.trancao30+assignment1@gmail.com'
