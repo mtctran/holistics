@@ -1,0 +1,11 @@
+Dataset client_analytics {
+  label: 'Client Analytics'
+  description: 'Universal customer transaction dataset for all clients'
+  data_source_name: dynamic_customer_db
+  models: [
+    customer_transactions
+  ]
+  relationships: [
+  ]
+  owner: 'minh.trancao30+assignment1@gmail.com'
+}

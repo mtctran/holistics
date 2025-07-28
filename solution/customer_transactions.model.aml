@@ -1,7 +1,7 @@
-Model client_2_transactions {
+Model customer_transactions {
   type: 'table'
   data_source_name: dynamic_customer_db
-  table_name: 'client_2.client_2_data'
+  table_name: 'client_1.client_1_data'
   
   dimension customer_id {
     label: 'Customer ID'
