@@ -8,13 +8,7 @@ Model customer_transactions {
     SELECT 
       Customer_ID,
       Name,
-      Surname,
-      Gender,
-      Birthdate,
-      Transaction_Amount,
-      Date,
-      Merchant_Name,
-      Category
+      Transaction_Amount
     FROM `plenary-osprey-465723-c7.{{ H.current_user.data_source }}.{{ H.current_user.data_source }}_data`
   ;;
   
@@ -30,46 +24,10 @@ Model customer_transactions {
     definition: @sql {{ Name }};;
   }
   
-  dimension surname {
-    label: 'Last Name'
-    type: 'text'
-    definition: @sql {{ Surname }};;
-  }
-  
-  dimension gender {
-    label: 'Gender'
-    type: 'text'
-    definition: @sql {{ Gender }};;
-  }
-  
-  dimension birthdate {
-    label: 'Birth Date'
-    type: 'date'
-    definition: @sql {{ Birthdate }};;
-  }
-  
   dimension transaction_amount {
     label: 'Transaction Amount'
     type: 'number'
     definition: @sql {{ Transaction_Amount }};;
-  }
-  
-  dimension transaction_date {
-    label: 'Transaction Date'
-    type: 'date'
-    definition: @sql {{ Date }};;
-  }
-  
-  dimension merchant_name {
-    label: 'Merchant Name'
-    type: 'text'
-    definition: @sql {{ Merchant_Name }};;
-  }
-  
-  dimension category {
-    label: 'Category'
-    type: 'text'
-    definition: @sql {{ Category }};;
   }
 
   owner: 'minh.trancao30+assignment1@gmail.com'
