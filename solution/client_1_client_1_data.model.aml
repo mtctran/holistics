@@ -15,6 +15,12 @@ Model customer_transactions {
     definition: @sql {{ #SOURCE.Name }};;
   }
   
+  dimension test_user_dataset {
+    label: 'Test User Dataset'
+    type: 'text'
+    definition: @sql {{ _user_attributes['client_dataset'] }};;
+  }
+  
   dimension surname {
     label: 'Last Name'
     type: 'text'
