@@ -1,0 +1,59 @@
+Model client_2_transactions {
+  type: 'table'
+  data_source_name: dynamic_customer_db
+  table_name: 'client_2.client_2_data'
+  
+  dimension customer_id {
+    label: 'Customer ID'
+    type: 'number'
+    definition: @sql {{ #SOURCE.Customer_ID }};;
+  }
+  
+  dimension name {
+    label: 'First Name'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Name }};;
+  }
+  
+  dimension surname {
+    label: 'Last Name'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Surname }};;
+  }
+  
+  dimension gender {
+    label: 'Gender'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Gender }};;
+  }
+  
+  dimension birthdate {
+    label: 'Birth Date'
+    type: 'date'
+    definition: @sql {{ #SOURCE.Birthdate }};;
+  }
+  
+  dimension transaction_amount {
+    label: 'Transaction Amount'
+    type: 'number'
+    definition: @sql {{ #SOURCE.Transaction_Amount }};;
+  }
+  
+  dimension transaction_date {
+    label: 'Transaction Date'
+    type: 'date'
+    definition: @sql {{ #SOURCE.Date }};;
+  }
+  
+  dimension merchant_name {
+    label: 'Merchant'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Merchant_Name }};;
+  }
+  
+  dimension category {
+    label: 'Category'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Category }};;
+  }
+}
