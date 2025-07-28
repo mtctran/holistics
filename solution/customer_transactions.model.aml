@@ -1,7 +1,7 @@
 Model customer_transactions {
   type: 'query'
   label: 'Customer Transactions'
-  description: 'Dynamic customer transaction data'
+  description: 'Customer transaction data'
   data_source_name: 'main_bigquery'
   
   query: @sql
