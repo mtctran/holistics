@@ -1,4 +1,4 @@
-Model customer_transactions {
+Model client_1_transactions {
   type: 'table'
   data_source_name: dynamic_customer_db
   table_name: 'client_1.client_1_data'
@@ -13,12 +13,6 @@ Model customer_transactions {
     label: 'First Name'
     type: 'text'
     definition: @sql {{ #SOURCE.Name }};;
-  }
-  
-  dimension test_user_dataset {
-    label: 'Test User Dataset'
-    type: 'text'
-    definition: @sql {{ $user.client_dataset }};;
   }
   
   dimension surname {
