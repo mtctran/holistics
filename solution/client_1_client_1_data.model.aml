@@ -1,0 +1,33 @@
+Model customer_transactions {
+  type: 'table'
+  label: 'Customer Transactions'
+  description: 'Customer transaction data'
+  data_source_name: 'main_bigquery'
+  table_name: 'client_1.client_1_data'
+  
+  dimension customer_id {
+    label: 'Customer ID'
+    type: 'number'
+    definition: @sql {{ #SOURCE.Customer_ID }};;
+  }
+  
+  dimension name {
+    label: 'First Name'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Name }};;
+  }
+  
+  dimension surname {
+    label: 'Last Name'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Surname }};;
+  }
+  
+  dimension gender {
+    label: 'Gender'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Gender }};;
+  }
+
+  owner: 'minh.trancao30+assignment1@gmail.com'
+}
