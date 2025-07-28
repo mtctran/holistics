@@ -1,1 +1,5 @@
-const dynamic_customer_db = 'main_bigquery'
+const dynamic_customer_db = if (H.git.is_production) {
+  H.current_user.data_source
+} else {
+  'main_bigquery'
+}
