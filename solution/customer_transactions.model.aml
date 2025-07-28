@@ -15,7 +15,7 @@ Model customer_transactions {
       Date,
       Merchant_Name,
       Category
-    FROM `plenary-osprey-465723-c7`.`{{ H.current_user.data_source }}`.`{{ H.current_user.data_source }}_data`
+    FROM `plenary-osprey-465723-c7.{{ H.current_user.data_source }}.{{ H.current_user.data_source }}_data`
     LIMIT 100
   ;;
   
