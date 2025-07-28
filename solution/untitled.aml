@@ -1,7 +1,7 @@
 Model customer_transactions {
   type: 'table'
   data_source_name: dynamic_customer_db
-  table_name: '{{ _user_attributes.client_dataset }}.{{ _user_attributes.client_table }}'
+  table_name: 'client_1.client_1_data'
   
   dimension customer_id {
     label: 'Customer ID'
