@@ -1,32 +1,33 @@
 Model customer_transactions {
-  type: 'table'
+  type: 'query'
   label: 'Customer Transactions'
-  description: 'Customer transaction data'
+  description: 'Dynamic customer transaction data'
   data_source_name: 'main_bigquery'
-  table_name: 'client_1.client_1_data'
+  
+  query: @sql
+    SELECT 
+      Customer_ID,
+      Name,
+      Surname,
+      Gender,
+      Birthdate,
+      Transaction_Amount,
+      Date,
+      Merchant_Name,
+      Category
+    FROM `plenary-osprey-465723-c7.{{ H.current_user.data_source }}.{{ H.current_user.data_source }}_data`
+  ;;
   
   dimension customer_id {
     label: 'Customer ID'
     type: 'number'
-    definition: @sql {{ #SOURCE.Customer_ID }};;
+    definition: @sql {{ Customer_ID }};;
   }
   
   dimension name {
     label: 'First Name'
     type: 'text'
-    definition: @sql {{ #SOURCE.Name }};;
-  }
-  
-  dimension surname {
-    label: 'Last Name'
-    type: 'text'
-    definition: @sql {{ #SOURCE.Surname }};;
-  }
-  
-  dimension gender {
-    label: 'Gender'
-    type: 'text'
-    definition: @sql {{ #SOURCE.Gender }};;
+    definition: @sql {{ Name }};;
   }
 
   owner: 'minh.trancao30+assignment1@gmail.com'
