@@ -1,7 +1,18 @@
 Model customer_transactions {
-  type: 'table'
+  type: 'query'
   data_source_name: dynamic_customer_db
-  table_name: 'client_1.client_1_data'
+  query: @sql
+    SELECT *, 'client_1' as client_id FROM `client_1.client_1_data`
+    UNION ALL
+    SELECT *, 'client_2' as client_id FROM `client_2.client_2_data`
+  ;;
+  
+  dimension client_id {
+    label: 'Client ID'
+    type: 'text'
+    definition: @sql {{ #SOURCE.client_id }};;
+    hidden: true
+  }
   
   dimension customer_id {
     label: 'Customer ID'
