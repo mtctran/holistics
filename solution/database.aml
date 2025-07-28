@@ -1,1 +1,1 @@
-const dynamic_customer_db = 'bigquery_main'
+const dynamic_customer_db = 'main_bigquery'
