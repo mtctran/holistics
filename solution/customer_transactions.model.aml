@@ -11,7 +11,7 @@ Model customer_transactions {
   dimension test_number {
     label: 'Test Number'
     type: 'number'
-    definition: @sql {{ test_number }};;
+    definition: @sql {{ #SOURCE.test_number }};;
   }
 
   owner: 'minh.trancao30+assignment1@gmail.com'
