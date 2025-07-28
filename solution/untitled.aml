@@ -1,0 +1,1 @@
+const dynamic_customer_db = 'bigquery_main'
