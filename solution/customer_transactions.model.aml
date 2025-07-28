@@ -1,6 +1,4 @@
-Excellent! Now we know your BigQuery connection and data access works perfectly.
-Step 2: Let's add more fields
-amlModel customer_transactions {
+Model customer_transactions {
   type: 'query'
   label: 'Customer Transactions'
   description: 'Customer transaction data'
