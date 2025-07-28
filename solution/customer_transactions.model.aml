@@ -1,17 +1,78 @@
-Model customer_transactions {
+Excellent! Now we know your BigQuery connection and data access works perfectly.
+Step 2: Let's add more fields
+amlModel customer_transactions {
   type: 'query'
   label: 'Customer Transactions'
   description: 'Customer transaction data'
   data_source_name: 'main_bigquery'
   
   query: @sql
-    SELECT Customer_ID FROM `plenary-osprey-465723-c7.client_1.client_1_data` LIMIT 1
+    SELECT 
+      Customer_ID, 
+      Name, 
+      Surname,
+      Gender,
+      Birthdate,
+      Transaction_Amount,
+      Date,
+      Merchant_Name,
+      Category
+    FROM `plenary-osprey-465723-c7.client_1.client_1_data` 
+    LIMIT 100
   ;;
   
   dimension customer_id {
     label: 'Customer ID'
     type: 'number'
     definition: @sql {{ #SOURCE.Customer_ID }};;
+  }
+  
+  dimension name {
+    label: 'First Name'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Name }};;
+  }
+  
+  dimension surname {
+    label: 'Last Name'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Surname }};;
+  }
+  
+  dimension gender {
+    label: 'Gender'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Gender }};;
+  }
+  
+  dimension birthdate {
+    label: 'Birth Date'
+    type: 'date'
+    definition: @sql {{ #SOURCE.Birthdate }};;
+  }
+  
+  dimension transaction_amount {
+    label: 'Transaction Amount'
+    type: 'number'
+    definition: @sql {{ #SOURCE.Transaction_Amount }};;
+  }
+  
+  dimension transaction_date {
+    label: 'Transaction Date'
+    type: 'date'
+    definition: @sql {{ #SOURCE.Date }};;
+  }
+  
+  dimension merchant_name {
+    label: 'Merchant Name'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Merchant_Name }};;
+  }
+  
+  dimension category {
+    label: 'Category'
+    type: 'text'
+    definition: @sql {{ #SOURCE.Category }};;
   }
 
   owner: 'minh.trancao30+assignment1@gmail.com'
