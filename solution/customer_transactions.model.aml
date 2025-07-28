@@ -16,7 +16,6 @@ Model customer_transactions {
       Merchant_Name,
       Category
     FROM `plenary-osprey-465723-c7.client_1.client_1_data` 
-    LIMIT 100
   ;;
   
   dimension customer_id {
