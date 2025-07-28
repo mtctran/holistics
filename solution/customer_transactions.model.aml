@@ -5,29 +5,13 @@ Model customer_transactions {
   data_source_name: 'main_bigquery'
   
   query: @sql
-    SELECT 
-      Customer_ID,
-      Name,
-      Transaction_Amount
-    FROM `plenary-osprey-465723-c7.client_1.client_1_data`
+    SELECT Customer_ID FROM `plenary-osprey-465723-c7.client_1.client_1_data` LIMIT 1
   ;;
   
   dimension customer_id {
     label: 'Customer ID'
     type: 'number'
     definition: @sql {{ Customer_ID }};;
-  }
-  
-  dimension name {
-    label: 'First Name'
-    type: 'text'
-    definition: @sql {{ Name }};;
-  }
-  
-  dimension transaction_amount {
-    label: 'Transaction Amount'
-    type: 'number'
-    definition: @sql {{ Transaction_Amount }};;
   }
 
   owner: 'minh.trancao30+assignment1@gmail.com'
