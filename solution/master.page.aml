@@ -1,0 +1,21 @@
+Dashboard master {
+  title: 'Master'
+  description: ''
+  block title: TextBlock {
+    content: @md # Store Performance;;
+  }
+
+  view: CanvasLayout {
+    label: 'View 1'
+    height: 840
+    grid_size: 20
+    block title {
+      position: pos(400, 20, 320, 60)
+    }
+    mobile {
+      mode: 'auto'
+    }
+  }
+
+  theme: H.themes.vanilla
+}
