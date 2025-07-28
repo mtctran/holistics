@@ -5,13 +5,13 @@ Model customer_transactions {
   data_source_name: 'main_bigquery'
   
   query: @sql
-    SELECT 1 as test_field
+    SELECT 1 as test_number
   ;;
   
-  dimension test_field {
-    label: 'Test'
+  dimension test_number {
+    label: 'Test Number'
     type: 'number'
-    definition: @sql {{ test_field }};;
+    definition: @sql {{ test_number }};;
   }
 
   owner: 'minh.trancao30+assignment1@gmail.com'
