@@ -5,36 +5,44 @@ Dashboard test {
     content: @md # My Dashboard;;
   }
   block v1: VizBlock {
-    label: 'Revenue'
-    viz: MetricKpi {
-      dataset: ecommerce
-      calculation revenue {
-        label: 'Revenue'
-        formula: @aql sum(order_items, products.price * order_items.quantity);;
-        calc_type: 'measure'
-        data_type: 'number'
-      }
-      value: VizFieldFull {
-        ref: 'revenue'
-        format {
-          type: 'number'
-          pattern: 'inherited'
+    label: 'Customer ID, First Name, Last Name, and Client ID'
+    viz: DataTable {
+      dataset: client_analytics
+      fields: [
+        VizFieldFull {
+          ref: ref('customer_transactions', 'customer_id')
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: ref('customer_transactions', 'name')
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: ref('customer_transactions', 'surname')
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: ref('customer_transactions', 'client_id')
+          format {
+            type: 'text'
+          }
         }
-      }
+      ]
       settings {
-        display_mode: 'compare_by_number'
+        show_row_number: true
+        row_limit: 5000
         aggregate_awareness {
           enabled: true
           debug_comments: true
         }
-        label {
-          font_size: 25
-        }
-        alignment: 'center'
       }
-    }
-    settings {
-      hide_label: true
     }
   }
 
@@ -48,7 +56,7 @@ Dashboard test {
         position: pos(460, 20, 240, 60)
       }
       block v1 {
-        position: pos(20, 80, 200, 120)
+        position: pos(20, 20, 540, 380)
         layer: 1
       }
       mobile {
