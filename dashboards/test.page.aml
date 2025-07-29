@@ -144,11 +144,11 @@ Dashboard test {
         layer: 1
       }
       block v2 {
-        position: pos(40, 80, 240, 120)
+        position: pos(160, 80, 240, 120)
         layer: 2
       }
       block v3 {
-        position: pos(460, 80, 240, 120)
+        position: pos(740, 80, 240, 120)
         layer: 3
       }
       mobile {
