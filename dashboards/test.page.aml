@@ -37,6 +37,41 @@ Dashboard test {
       hide_label: true
     }
   }
+  block v2: VizBlock {
+    label: 'Customer ID, First Name, and Last Name'
+    viz: DataTable {
+      dataset: client_analytics
+      fields: [
+        VizFieldFull {
+          ref: ref('customer_transactions', 'customer_id')
+          format {
+            type: 'number'
+            pattern: 'inherited'
+          }
+        },
+        VizFieldFull {
+          ref: ref('customer_transactions', 'name')
+          format {
+            type: 'text'
+          }
+        },
+        VizFieldFull {
+          ref: ref('customer_transactions', 'surname')
+          format {
+            type: 'text'
+          }
+        }
+      ]
+      settings {
+        show_row_number: true
+        row_limit: 5000
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
 
   view: TabLayout {
     label: 'View 1'
@@ -50,6 +85,10 @@ Dashboard test {
       block v1 {
         position: pos(20, 80, 200, 120)
         layer: 1
+      }
+      block v2 {
+        position: pos(720, 20, 400, 300)
+        layer: 2
       }
       mobile {
         mode: 'auto'
