@@ -129,6 +129,52 @@ Dashboard test {
       hide_label: true
     }
   }
+  block v4: VizBlock {
+    label: 'Sum of Transaction Amount by Category'
+    viz: BarChart {
+      dataset: client_analytics
+      x_axis: VizFieldFull {
+        ref: ref('customer_transactions', 'category')
+        format {
+          type: 'text'
+        }
+      }
+      legend: VizFieldFull {
+        ref: ref('customer_transactions', 'category')
+        format {
+          type: 'text'
+        }
+      }
+      y_axis {
+        settings {
+          stack_series_by: 'value'
+        }
+        series {
+          field: VizFieldFull {
+            ref: ref('customer_transactions', 'transaction_amount')
+            aggregation: 'sum'
+            format {
+              type: 'number'
+              pattern: 'inherited'
+            }
+          }
+        }
+      }
+      settings {
+        row_limit: 5000
+        sort {
+          field_index: 0
+          direction: 'desc'
+          type: 'yaxis'
+        }
+        x_axis_show_null_datetime: false
+        aggregate_awareness {
+          enabled: true
+          debug_comments: true
+        }
+      }
+    }
+  }
 
   view: TabLayout {
     label: 'View 1'
@@ -150,6 +196,10 @@ Dashboard test {
       block v3 {
         position: pos(740, 80, 240, 120)
         layer: 3
+      }
+      block v4 {
+        position: pos(580, 260, 480, 360)
+        layer: 4
       }
       mobile {
         mode: 'auto'
